@@ -23,6 +23,8 @@ def noun_chain(input_data):
                     noun_list.append("\t".join(noun))
                 noun = []
         else:
+            if len(noun) >= 2:
+                noun_list.append("\t".join(noun))
             noun = []
     return(noun_list)
 

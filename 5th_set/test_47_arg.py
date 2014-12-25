@@ -1,6 +1,6 @@
 #!/usr/bin/python
 #-*-coding:utf-8-*-
-from optparse import OptionParser
+import argparse 
 from test_42 import *
 from test_43 import *
 from test_44 import *
@@ -12,12 +12,12 @@ def print_list(text):
         for line in text:
             print line
 
-parser = OptionParser(description="Choice 42-46")
-parser.add_option("-v","--verb",help="test_42")    #(42)
-parser.add_option("-b","--base")    #(43)
-parser.add_option("-n","--noun")    #(44)
-parser.add_option("-o","--AofB")    #(45)
-parser.add_option("-c","--chain")   #(46)
+parser = argparse.ArgumentParser(description="Choice 42-46")
+parser.add_argument("-v","--verb")    #(42)
+parser.add_argument("-b","--base")    #(43)
+parser.add_argument("-n","--noun")    #(44)
+parser.add_argument("-o","--AofB")    #(45)
+parser.add_argument("-c","--chain")   #(46)
 options,args = parser.parse_args()
 if options.verb != None:
     verb_list = verb_picup(options.verb)
@@ -33,4 +33,4 @@ if options.AofB != None:
     print_list(pair_list)
 if options.chain != None:
     chain_list = noun_chain(options.chain)
-    print_list(chain_list)
+    freq_count(chain_list)

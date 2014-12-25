@@ -15,3 +15,8 @@ for line in open(sys.argv[1]):
     prob = float(prob)
     db[words] = prob
 
+for key in db:
+    print key,db[key]
+
+#db["foo"] = 2.111
+#print db["foo"]

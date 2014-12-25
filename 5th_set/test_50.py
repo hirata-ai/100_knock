@@ -7,21 +7,37 @@ from test_44 import *
 from test_45 import *
 from test_46 import *
 
+#def freq_count(text):
+#    from collections import defaultdict
+#    import matplotlib.pyplot as plt
+#    freq = defaultdict(int)
+#    value_freq = defaultdict(int)
+#    a = []
+#    if text != None:
+#        for line in text:
+#            freq[line] += 1
+#        
+#        for i in freq:
+#            a.append(freq[i])
+#        plt.hist(a,bins=100,range=(0,50))
+#        plt.savefig("output_49.png")
+#        plt.show()
+
 def freq_count(text):
     from collections import defaultdict
     import matplotlib.pyplot as plt
     freq = defaultdict(int)
-    value_freq = defaultdict(int)
-    a = []
+    x = []
+    y = []
     if text != None:
         for line in text:
             freq[line] += 1
-        
-        for i in freq:
-            a.append(freq[i])
-        plt.hist(a,bins=100,range=(0,50))
-        plt.savefig("output_49.png")
-        plt.show()
+        for k, v in sorted(freq.items(), key=lambda x:x[1],reverse=True):
+            print k,v
+            x.append(k)
+            y.append(v)
+        plt.bar(x,y)
+        plt.savefig("output_50.png")
 
 parser = OptionParser()
 parser.add_option("-v","--verb")    #(42)
